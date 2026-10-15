@@ -1,0 +1,310 @@
+.app {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 28px 24px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* ---------- Header ---------- */
+.app__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.brand__logo {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  font-size: 32px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #0b1220;
+  box-shadow: 0 10px 30px rgba(56, 189, 248, 0.35);
+}
+
+.brand__name {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, #e8eef7, #a5c9ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.brand__tagline {
+  margin: 2px 0 0;
+  color: var(--text-dim);
+  font-size: 0.92rem;
+}
+
+/* ---------- Layout utama ---------- */
+.app__main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(300px, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.board-column {
+  min-width: 0;
+}
+
+.board-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.board-turn-indicator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-weight: 600;
+  color: var(--text-dim);
+}
+
+.turn-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid rgba(148, 163, 184, 0.6);
+}
+
+.turn-dot--w {
+  background: #f8fafc;
+}
+
+.turn-dot--b {
+  background: #0f172a;
+}
+
+.side-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ---------- Panel ---------- */
+.panel {
+  background: linear-gradient(180deg, var(--surface), var(--bg-800));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+
+.panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.panel__title {
+  margin: 0;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.panel__actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+/* ---------- Status badge ---------- */
+.status-badge {
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.98rem;
+  border: 1px solid var(--border);
+}
+
+.status-badge--active {
+  background: rgba(56, 189, 248, 0.12);
+  color: #bae6fd;
+}
+
+.status-badge--check {
+  background: rgba(251, 191, 36, 0.14);
+  color: #fde68a;
+}
+
+.status-badge--over {
+  background: rgba(52, 211, 153, 0.14);
+  color: #a7f3d0;
+}
+
+/* ---------- Riwayat langkah ---------- */
+.move-history {
+  margin-top: 16px;
+}
+
+.move-history__title {
+  margin: 0 0 10px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+}
+
+.move-history__empty {
+  margin: 0;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+.move-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 220px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.move-row {
+  display: grid;
+  grid-template-columns: 32px 1fr 1fr;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  font-variant-numeric: tabular-nums;
+}
+
+.move-row:nth-child(odd) {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.move-row__num {
+  color: var(--text-dim);
+}
+
+.move-row__ply {
+  font-weight: 600;
+}
+
+/* ---------- Tombol ---------- */
+.btn {
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 11px 16px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.08s ease, filter 0.15s ease, background 0.15s ease;
+  flex: 1;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn--primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #06121f;
+}
+
+.btn--primary:not(:disabled):hover {
+  filter: brightness(1.08);
+}
+
+.btn--ghost {
+  background: rgba(148, 163, 184, 0.08);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.btn--ghost:not(:disabled):hover {
+  background: rgba(148, 163, 184, 0.16);
+}
+
+.btn--block {
+  width: 100%;
+  flex: none;
+}
+
+/* ---------- Coach panel ---------- */
+.badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.badge--soon {
+  background: rgba(129, 140, 248, 0.18);
+  color: #c7d2fe;
+  border: 1px solid rgba(129, 140, 248, 0.35);
+}
+
+.coach-panel__spark {
+  color: var(--accent);
+}
+
+.coach-panel__intro {
+  margin: 0 0 14px;
+  color: var(--text-dim);
+  line-height: 1.55;
+}
+
+.coach-feature-list {
+  margin: 0 0 18px;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--text);
+}
+
+.coach-feature-list li {
+  color: var(--text-dim);
+}
+
+.coach-panel__note {
+  margin: 10px 0 0;
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--text-dim);
+}
+
+/* ---------- Footer ---------- */
+.app__footer {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+}
+
+/* ---------- Responsif ---------- */
+@media (max-width: 900px) {
+  .app__main {
+    grid-template-columns: 1fr;
+  }
+}
